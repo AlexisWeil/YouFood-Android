@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="YouFood" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/YouFood.ActionBar</item>
+    </style>
+    
+    <style name="YouFood.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@color/base</item>
+        <item name="android:titleTextStyle">@style/YouFood.ActionBar.Title</item>
+    </style>
+    
+    <style name="YouFood.ActionBar.Title" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">30dp</item>
+    </style>
+</resources>

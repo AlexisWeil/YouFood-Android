@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">YouFood</string>
+    <string name="connection">Connexion</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+
+</resources>
