@@ -6,7 +6,8 @@ public class Configuration {
 	
 	private static Configuration currentInstance;
 	
-	private static String connectionToken;
+	private String connectionToken;
+	private int tableNumber;
 	
 	private Configuration() { }
 	
@@ -17,11 +18,19 @@ public class Configuration {
 		return currentInstance;
 	}
 
-	public static String getConnectionToken() {
+	public String getConnectionToken() {
 		return connectionToken;
 	}
 
-	public static void setConnectionToken(String connectionToken) {
-		Configuration.connectionToken = connectionToken;
+	public void setConnectionToken(String connectionToken) {
+		this.connectionToken = connectionToken;
+	}
+
+	public int getTableNumber() {
+		return tableNumber;
+	}
+
+	public void setTableNumber(int tableNumber) {
+		this.tableNumber = tableNumber;
 	}
 }

@@ -5,5 +5,9 @@
     <string name="connection">Connexion</string>
     <string name="email">Email</string>
     <string name="password">Mot de passe</string>
+    <string name="tablenumber">Numéro de la table :</string>
+    <string name="validate">Valider</string>
+    <string name="passercommande">Passer la commande vous-même</string>
+    <string name="appelerserveur">Appeler un serveur</string>
 
 </resources>
