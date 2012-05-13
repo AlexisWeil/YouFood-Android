@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/CallWaiter"
+        android:enabled="true"
+        android:icon="@drawable/waiter"
+        android:showAsAction="always|withText"
+        android:title="@string/appelerserveur"
+        android:titleCondensed="@string/appelerserveur"
+        android:visible="true" android:actionLayout="@layout/callwaiter_action">
+    </item>
+    <item
+        android:id="@+id/OrderAction"
+        android:enabled="true"
+        android:showAsAction="always|withText"
+        android:visible="true" android:actionLayout="@layout/order_action">
+    </item>
+
+</menu>

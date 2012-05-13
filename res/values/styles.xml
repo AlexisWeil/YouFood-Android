@@ -7,6 +7,7 @@
     <style name="YouFood.ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@color/base</item>
         <item name="android:titleTextStyle">@style/YouFood.ActionBar.Title</item>
+        <item name="android:actionMenuTextColor">#FFFFFF</item>
     </style>
     
     <style name="YouFood.ActionBar.Title" parent="@android:style/TextAppearance">

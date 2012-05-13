@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/OrderActionView"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:clickable="true"
+    android:focusable="true"
+    android:addStatesFromChildren="true"
+    android:background="?android:attr/actionBarItemBackground"
+    style="?android:attr/actionButtonStyle">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bottom_arrow" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/order"
+        android:textAllCaps="true"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/OrderActionQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="245€"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/red" />
+
+</LinearLayout>

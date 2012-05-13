@@ -9,5 +9,12 @@
     <string name="validate">Valider</string>
     <string name="passercommande">Passer la commande vous-même</string>
     <string name="appelerserveur">Appeler un serveur</string>
+    <string name="quantity">Quantité :</string>
+    <string name="cancel">Annuler</string>
+    <string name="productDetailDescription">Impossible de récupérer la description</string>
+    <string name="productDetailPrice">Prix indisponible</string>
+    <string name="quantityPrompt">Quantité</string>
+    <string name="total">Total</string>
+    <string name="order">Commande</string>
 
 </resources>

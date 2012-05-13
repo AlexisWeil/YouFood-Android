@@ -9,17 +9,25 @@
         android:id="@+id/CategoriesList"
         android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp" >
+        android:layout_marginTop="50dp"
+        android:choiceMode="singleChoice" >
 
         <!-- Preview: listitem=@android:layout/simple_list_item_1 -->
 
     </ListView>
 
     <GridView
-        android:id="@+id/gridView1"
+        android:id="@+id/ProductsGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="5">
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:horizontalSpacing="20dp"
+        android:numColumns="4"
+        android:verticalSpacing="30dp" >
+
+        <!-- Preview: listitem=@layout/menu_item -->
+
     </GridView>
 
 </LinearLayout>

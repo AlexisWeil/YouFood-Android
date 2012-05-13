@@ -15,11 +15,15 @@ public class CallWaiterListener implements OnClickListener {
 	}
 	
 	/**
-	 * Appelée lors du clique sur un bouton pour appeler un serveur.
-	 * Va afficher une dialog pour demander à l'utilisateur d'attendre.
+	 * Appelï¿½e lors du clique sur un bouton pour appeler un serveur.
+	 * Va afficher une dialog pour demander ï¿½ l'utilisateur d'attendre.
 	 */
 	public void onClick(View v) {
-		ProgressDialog dialog = ProgressDialog.show(this.activity, "", "Veuillez patienter, un serveur va arriver ...", true, true);
+		showWaiterDialog(this.activity);
+	}
+	
+	public void showWaiterDialog(Activity act) {
+		ProgressDialog dialog = ProgressDialog.show(act, "", "Veuillez patienter, un serveur va arriver ...", true, true);
 		dialog.show();
 	}
 

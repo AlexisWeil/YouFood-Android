@@ -2,7 +2,7 @@ package com.youfood.listeners;
 
 import com.youfood.activities.R;
 import com.youfood.fragments.mainmenu.MainMenuFragment;
-import com.youfood.tasks.connection.ConnectionTask;
+import com.youfood.tasks.ConnectionTask;
 import com.youfood.utils.Configuration;
 
 import android.app.Activity;
@@ -29,7 +29,7 @@ public class ConnectionAndTableListener implements OnClickListener {
 		if(v.getId() == R.id.ConnectionButton) {
 			Log.d("youfood", "Click connexion !");
 	    	
-	    	String connectionUri = Configuration.URI_SERVER + "/api/auth/request_token";
+	    	String connectionUri = Configuration.CONNECTION_URI;
 
 	    	String email = ((EditText) this.activity.findViewById(R.id.Email)).getText().toString();
 	    	String password = ((EditText) this.activity.findViewById(R.id.Password)).getText().toString();
