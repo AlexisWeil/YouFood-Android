@@ -3,6 +3,7 @@ package com.youfood.views;
 import android.app.Dialog;
 import android.content.Context;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.youfood.activities.ChooseMenuActivity;
 import com.youfood.activities.R;
@@ -21,7 +22,17 @@ public class OrderDialog extends Dialog {
 		
 		ListView orderList = (ListView) findViewById(R.id.OrderList);
 		orderList.setAdapter(new OrderListAdapter(activity.getOrderProducts(), activity));
-		
 	}
 
+	@Override
+	public void show() {
+		super.show();
+		updateTotalPrice();
+	}
+	
+	public void updateTotalPrice() {
+		TextView totalPrice = (TextView) findViewById(R.id.OrderTotalPrice);
+		TextView actionTotalPrice = (TextView) activity.getOrderAction().getActionView().findViewById(R.id.OrderActionTotalPrice);
+		totalPrice.setText(actionTotalPrice.getText());
+	}
 }

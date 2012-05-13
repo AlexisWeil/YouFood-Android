@@ -2,9 +2,8 @@ package com.youfood.listeners;
 
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
 
 import com.youfood.activities.ChooseMenuActivity;
 import com.youfood.models.Product;

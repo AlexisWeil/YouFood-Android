@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.youfood.activities.ChooseMenuActivity;
 import com.youfood.activities.R;
+import com.youfood.listeners.RemoveProductFromOrderListener;
 import com.youfood.models.Product;
 
 public class OrderListAdapter extends BaseAdapter {
@@ -43,13 +44,13 @@ public class OrderListAdapter extends BaseAdapter {
 		
 		Product p = (Product) getItem(position);
 		
-		ImageView image = (ImageView) view.findViewById(R.id.OrderProductImage);
-		image.setImageBitmap(p.getPhotoBitmap());
+		if(p.getPhotoBitmap() != null) {
+			ImageView image = (ImageView) view.findViewById(R.id.OrderProductImage);
+			image.setImageBitmap(p.getPhotoBitmap());
+		}
 		
 		TextView name = (TextView) view.findViewById(R.id.OrderProductName);
 		name.setText(p.getName());
-		
-		Integer quantity = orderProducts.get(p);
 		
 		Spinner quantitiesSpinner = (Spinner) view.findViewById(R.id.OrderProductQuantity);
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -57,10 +58,24 @@ public class OrderListAdapter extends BaseAdapter {
 	    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	    quantitiesSpinner.setAdapter(adapter);
 	    
+		Integer quantity = orderProducts.get(p);
+	    quantitiesSpinner.setSelection(quantity);
+	    
 	    TextView totalPrice = (TextView) view.findViewById(R.id.OrderProductTotalPrice);
 	    totalPrice.setText(String.valueOf(quantity * p.getPrice()));
+	    
+	    ImageView remove = (ImageView) view.findViewById(R.id.OrderRemoveProduct);
+	    remove.setOnClickListener(new RemoveProductFromOrderListener(p, this));
 		
 		return view;
+	}
+
+	public ChooseMenuActivity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(ChooseMenuActivity activity) {
+		this.activity = activity;
 	}
 
 }

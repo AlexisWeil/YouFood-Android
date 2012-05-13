@@ -34,6 +34,7 @@ public class ChooseMenuActivity extends Activity {
 	private List<Category> categories;
 	private ProductDialog productDialog;
 	private OrderDialog orderDialog;
+	private MenuItem orderAction;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +73,7 @@ public class ChooseMenuActivity extends Activity {
 	}
 	
 	/**
-	 * Méthode permettant de changer les produits affichés en fonction d'une catégorie
+	 * Méthode permettant de changer les produits affichés en fonction d'une catégorie.
 	 * 
 	 * @param c La catégorie pour laquelle afficher les produits
 	 */
@@ -83,11 +84,30 @@ public class ChooseMenuActivity extends Activity {
 		this.productDialog.setProducts(productsByCategories.get(c));
 	}
 	
-	public void addProductToOrder(Product p, int quantity) {
-		orderProducts.put(p, quantity);
+	/**
+	 * Méthode permettant d'ajouter un produit à la commande, ou de le retirer si
+	 * la quantité est égale à 0.
+	 * 
+	 * @param product Le produit à ajouter à la commande
+	 * @param quantity La quantité du produit à ajouter
+	 */
+	public void managerProductForOrder(Product product, int quantity) {
+		if(quantity > 0)
+			orderProducts.put(product, quantity);
+		else if(orderProducts.containsKey(product))
+			orderProducts.remove(product);
 		
+		float totalPrice = 0f;
+		for(Product p : orderProducts.keySet()) {
+			totalPrice += (p.getPrice() * orderProducts.get(p));
+		}
+		
+		((TextView) orderAction.getActionView().findViewById(R.id.OrderActionTotalPrice)).setText(totalPrice + "€");
 	}
 
+	/**
+	 * Méthode permettant de créer la ActionBar
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(android.view.Menu menu) {
 		
@@ -99,8 +119,8 @@ public class ChooseMenuActivity extends Activity {
 			.findViewById(R.id.CallWaiterActionView)
 			.setOnClickListener(new CallWaiterListener(this));
 		
-		menu.findItem(R.id.OrderAction)
-			.getActionView()
+		this.orderAction = menu.findItem(R.id.OrderAction);
+		this.orderAction.getActionView()
 			.findViewById(R.id.OrderActionView)
 			.setOnClickListener(new OnClickListener() {
 			
@@ -162,5 +182,13 @@ public class ChooseMenuActivity extends Activity {
 
 	public void setOrderDialog(OrderDialog orderDialog) {
 		this.orderDialog = orderDialog;
+	}
+
+	public MenuItem getOrderAction() {
+		return orderAction;
+	}
+
+	public void setOrderAction(MenuItem orderAction) {
+		this.orderAction = orderAction;
 	}
 }

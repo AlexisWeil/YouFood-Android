@@ -3,10 +3,10 @@ package com.youfood.listeners;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.youfood.activities.ChooseMenuActivity;
 import com.youfood.activities.R;
+import com.youfood.models.Product;
 import com.youfood.views.ProductDialog;
 
 public class ChooseProductListener implements OnClickListener {
@@ -21,8 +21,13 @@ public class ChooseProductListener implements OnClickListener {
 		this.quantitySpinner = (Spinner) productDialog.findViewById(R.id.DetailProductQuantity);
 	}
 
-	public void onClick(View v) {		
-		Toast.makeText(activity, "Product : " + productDialog.getCurrentProduct().getName() + " - quantity : " + quantitySpinner.getSelectedItem(), 5000).show();
+	public void onClick(View v) {
+		Product p = productDialog.getCurrentProduct();
+		int quantity = Integer.valueOf((String) quantitySpinner.getSelectedItem());
+		
+		activity.managerProductForOrder(p, quantity);
+		
+		productDialog.hide();
 		quantitySpinner.setSelection(0);
 	}
 

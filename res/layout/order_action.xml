@@ -25,10 +25,10 @@
         android:textColor="@color/white" />
 
     <TextView
-        android:id="@+id/OrderActionQuantity"
+        android:id="@+id/OrderActionTotalPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="245€"
+        android:text="0.0€"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/red" />
 

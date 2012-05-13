@@ -54,14 +54,21 @@ public class ProductDialog extends Dialog {
 		if(products != null && products.size() > 0) {			
 			this.setTitle(currentProduct.getName());
 			
-			ImageView img = (ImageView) findViewById(R.id.DetailProductImage);
-			img.setImageBitmap(currentProduct.getPhotoBitmap());
+			if(currentProduct.getPhotoBitmap() != null) {
+				ImageView img = (ImageView) findViewById(R.id.DetailProductImage);
+				img.setImageBitmap(currentProduct.getPhotoBitmap());
+			}
 			
 			TextView description = (TextView) findViewById(R.id.DetailProductDescription);
 			description.setText(currentProduct.getDescription());
 			
 			TextView price = (TextView) findViewById(R.id.DetailProductPrice);
 			price.setText(currentProduct.getPrice() + "€");
+			
+			if(activity.getOrderProducts().containsKey(currentProduct)) {
+				Spinner quantitySpinner = (Spinner) findViewById(R.id.DetailProductQuantity);
+				quantitySpinner.setSelection(activity.getOrderProducts().get(currentProduct));
+			}
 		}
 		super.show();
 	}
